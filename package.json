@@ -1,0 +1,29 @@
+{
+	"name": "chess-scan",
+	"version": "0.1.0",
+	"description": "Convert chessboard images into FEN notation",
+	"author": "sathwikv2005",
+	"license": "MIT",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"dev": "tsx src/index.ts",
+		"build": "tsc",
+		"clean": "rm -rf dist"
+	},
+	"keywords": [
+		"chess",
+		"fen"
+	],
+	"dependencies": {
+		"opencv.js": "^1.2.1"
+	},
+	"devDependencies": {
+		"typescript": "^6.0.3",
+		"tsx": "^4.22.4",
+		"@types/node": "^25.9.1"
+	}
+}
