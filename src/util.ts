@@ -55,9 +55,16 @@ export function createBoard(): Board {
 }
 
 export function isValidPiece(piece: number): boolean {
-	const color = piece & (Piece.White | Piece.Black)
+	if (piece === Piece.Empty) return true
 
-	return piece === Piece.Empty || color === Piece.White || color === Piece.Black
+	const color = piece & (Piece.White | Piece.Black)
+	const type = piece & Piece.Mask
+
+	const validColor = color === Piece.White || color === Piece.Black
+
+	const validType = type >= Piece.Pawn && type <= Piece.King
+
+	return validColor && validType
 }
 
 export function makeWhite(type: Piece): Piece {
