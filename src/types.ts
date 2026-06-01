@@ -50,3 +50,5 @@ export enum CastlingRights {
 	BlackQueen = 8,
 	ALL = 15,
 }
+
+export type ImageInput = string | ArrayBuffer | Uint8Array | Blob
