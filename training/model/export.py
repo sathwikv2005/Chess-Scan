@@ -72,17 +72,19 @@ def main():
     )
 
     torch.onnx.export(
-        model,
-        dummy,
-        onnx_path,
-        input_names=["input"],
-        output_names=["output"],
-        dynamic_axes={
-            "input": {0: "batch"},
-            "output": {0: "batch"},
-        },
-        opset_version=17,
-    )
+    model,
+    dummy,
+    onnx_path,
+    input_names=["input"],
+    output_names=["output"],
+    dynamic_axes={
+        "input": {0: "batch"},
+        "output": {0: "batch"},
+    },
+    opset_version=17,
+    export_params=True,
+    external_data=False,  
+)
 
     with open(labels_path, "w") as f:
         json.dump(
