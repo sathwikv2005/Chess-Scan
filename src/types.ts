@@ -41,3 +41,12 @@ export type PieceLiteral =
 	| ''
 
 export type Board = Uint8Array
+
+export enum CastlingRights {
+	NONE = 0,
+	WhiteKing = 1,
+	WhiteQueen = 2,
+	BlackKing = 4,
+	BlackQueen = 8,
+	ALL = 15,
+}

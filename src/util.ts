@@ -1,4 +1,4 @@
-import { Board, Piece, PieceColor, PieceLiteral, PieceType } from './types'
+import { Board, CastlingRights, Piece, PieceColor, PieceLiteral, PieceType } from './types'
 
 export function getColor(piece: Piece): PieceColor | null {
 	const color = piece & (Piece.White | Piece.Black)
@@ -66,4 +66,16 @@ export function makeWhite(type: Piece): Piece {
 
 export function makeBlack(type: Piece): Piece {
 	return (type | Piece.Black) as Piece
+}
+
+export function castlingRightsToFen(castlingRights: number): string {
+	let fen = ''
+
+	if ((castlingRights & CastlingRights.WhiteKing) !== 0) fen += 'K'
+	if ((castlingRights & CastlingRights.WhiteQueen) !== 0) fen += 'Q'
+	if ((castlingRights & CastlingRights.BlackKing) !== 0) fen += 'k'
+	if ((castlingRights & CastlingRights.BlackQueen) !== 0) fen += 'q'
+
+	if (fen === '') return '-'
+	return fen
 }
