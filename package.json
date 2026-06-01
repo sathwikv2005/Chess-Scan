@@ -7,7 +7,10 @@
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
-		"dist"
+		"dist",
+		"models",
+		"README.md",
+		"LICENSE"
 	],
 	"scripts": {
 		"dev": "tsx src/index.ts",
@@ -21,7 +24,9 @@
 		"fen"
 	],
 	"dependencies": {
-		"opencv.js": "^1.2.1"
+		"@resvg/resvg-js": "^2.6.2",
+		"opencv.js": "^1.2.1",
+		"sharp": "^0.34.5"
 	},
 	"devDependencies": {
 		"@types/node": "^25.9.1",
