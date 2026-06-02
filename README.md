@@ -1,6 +1,10 @@
-# chess-scan
+# Chess Scan
 
-Convert chessboard screenshots and images into FEN notation using machine learning.
+[![npm version](https://img.shields.io/npm/v/chess-scan)](https://www.npmjs.com/package/chess-scan)
+
+<!-- [![npm downloads](https://img.shields.io/npm/dm/chess-scan)](https://www.npmjs.com/package/chess-scan) -->
+
+Detect chess positions from images and convert them to FEN strings.
 
 ## Features
 
