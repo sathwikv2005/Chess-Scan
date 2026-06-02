@@ -70,3 +70,5 @@ export async function getSquareImgs(image: ImageInput): Promise<Buffer[]> {
 
 	return Promise.all(squares.map((square) => rawImageToBuffer(square)))
 }
+
+// imageToFen('training/datasets/example.png').then((res) => console.log(res.fen))

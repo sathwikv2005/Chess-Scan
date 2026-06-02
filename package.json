@@ -1,20 +1,29 @@
 {
 	"name": "chess-scan",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Convert chessboard images into FEN notation",
 	"author": "sathwikv2005",
 	"license": "MIT",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
 	"files": [
 		"dist",
-		"model",
+		"model/board-detection.onnx",
+		"model/chess-piece_3.onnx",
+		"model/labels_3.json",
 		"README.md",
 		"LICENSE"
 	],
 	"scripts": {
 		"dev": "tsx src/index.ts",
 		"build": "tsc",
+		"prepublishOnly": "npm run build",
 		"clean": "rm -rf dist",
 		"test": "vitest",
 		"test:watch": "vitest --watch",
@@ -36,5 +45,13 @@
 		"tsx": "^4.22.4",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.8"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sathwikv2005/chess-scan.git"
+	},
+	"bugs": {
+		"url": "https://github.com/sathwikv2005/chess-scan/issues"
+	},
+	"homepage": "https://github.com/sathwikv2005/chess-scan#readme"
 }

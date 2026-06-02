@@ -125,14 +125,12 @@ async function createTensor(image: RawImage) {
 export async function getBoardFromRaw(image: RawImage): Promise<RawImage> {
 	await fs.mkdir('debug', { recursive: true })
 
-	// 1. Save original input
 	await saveRawImage(image, 'debug/01-input.png')
 
 	const session = await getBoardDetector()
 
 	const tensor = await createTensor(image)
 
-	// 2. Save tensor as image so we can verify preprocessing
 	await saveTensor(tensor, 'debug/02-model-input.png')
 
 	const outputs = await session.run({
@@ -143,7 +141,6 @@ export async function getBoardFromRaw(image: RawImage): Promise<RawImage> {
 
 	const output = outputTensor.data as Float32Array
 
-	// YOLOv8 ONNX output: [1, 5, N]
 	const numPredictions = outputTensor.dims[2]
 
 	let bestConf = -Infinity

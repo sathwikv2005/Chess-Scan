@@ -3,7 +3,7 @@
 		"target": "ES2022",
 		"module": "CommonJS",
 		"outDir": "dist",
-		"rootDir": ".",
+		"rootDir": "src",
 
 		"types": ["node"],
 
@@ -14,5 +14,6 @@
 		"skipLibCheck": true
 	},
 
-	"include": ["src", "training"]
+	"include": ["src/**/*"],
+	"exclude": ["**/*.test.ts", "**/test.ts"]
 }
