@@ -13,11 +13,16 @@ from torch.amp import autocast, GradScaler
 
 from model import ChessCNN
 
-OUTPUT_DIR = Path("model/torch_outputs")
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+
+TRAIN_DIR = ROOT_DIR / "training" / "datasets" / "train"
+TEST_DIR = ROOT_DIR / "training" / "datasets" / "test"
+
+
+OUTPUT_DIR = ROOT_DIR / "model" / "torch_outputs"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-TRAIN_DIR = "training/datasets/train"
-TEST_DIR = "training/datasets/test"
 
 BATCH_SIZE = 512
 EPOCHS = 15

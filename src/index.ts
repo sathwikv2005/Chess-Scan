@@ -5,7 +5,7 @@ import { convertPrediction, createBoard } from './util'
 import { boardToFen } from './fen/boardToFen'
 import { getBoard, getSquares, saveDebugImages } from './board/getBoard'
 
-const modelUrl = 'model/chess-piece_1.onnx'
+const modelUrl = 'model/chess-piece_3.onnx'
 export interface ScanResult {
 	fen: string
 	confidence: Prediction[]
@@ -36,4 +36,4 @@ export async function imageToFen(image: ImageInput): Promise<ScanResult> {
 	}
 }
 
-imageToFen('training/datasets/example7.png').then((res) => console.log(res))
+imageToFen('training/datasets/example11.png').then((res) => console.log(res.fen))

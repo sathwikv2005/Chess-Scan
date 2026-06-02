@@ -87,6 +87,10 @@ export function castlingRightsToFen(castlingRights: number): string {
 	return fen
 }
 
+/*
+Classes:
+{'Empty': 0, 'bB': 1, 'bK': 2, 'bN': 3, 'bP': 4, 'bQ': 5, 'bR': 6, 'wB': 7, 'wK': 8, 'wN': 9, 'wP': 10, 'wQ': 11, 'wR': 12}
+*/
 const CLASS_TO_PIECE: Piece[] = [
 	Piece.Empty, // 0
 	makeBlack(Piece.Bishop), // 1 bB
