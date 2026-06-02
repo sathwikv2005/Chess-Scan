@@ -4,3 +4,7 @@ training/datasets/*
 **/__pycache__
 **/.venv
 *.pth
+*.pt
+**/test.ts
+debug
+runs

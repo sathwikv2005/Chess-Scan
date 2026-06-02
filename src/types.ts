@@ -51,4 +51,15 @@ export enum CastlingRights {
 	ALL = 15,
 }
 
-export type ImageInput = string | ArrayBuffer | Uint8Array | Blob
+export type ImageInput = string | Buffer
+
+export interface Prediction {
+	classId: number
+	confidence: number
+}
+
+export interface RawImage {
+	width: number
+	height: number
+	data: Uint8ClampedArray
+}

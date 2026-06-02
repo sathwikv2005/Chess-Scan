@@ -19,22 +19,22 @@ interface PieceCache {
 
 const pieceCache: PieceCache = {}
 
-function getThemes(): string[] {
+export function getThemes(): string[] {
 	return fs
 		.readdirSync(PIECE_DIR, { withFileTypes: true })
 		.filter((dirent) => dirent.isDirectory())
 		.map((dirent) => dirent.name)
 }
 
-function random(min: number, max: number): number {
+export function random(min: number, max: number): number {
 	return Math.random() * (max - min) + min
 }
 
-function randomInt(min: number, max: number): number {
+export function randomInt(min: number, max: number): number {
 	return Math.floor(random(min, max + 1))
 }
 
-async function loadPieceCache(): Promise<void> {
+export async function loadPieceCache(): Promise<void> {
 	const themes = getThemes()
 
 	for (const theme of themes) {
@@ -71,11 +71,11 @@ async function loadPieceCache(): Promise<void> {
 	console.log(`Loaded ${Object.values(pieceCache).reduce((a, b) => a + b.length, 0)} piece images`)
 }
 
-function getLabels(): string[] {
+export function getLabels(): string[] {
 	return ['Empty', ...Object.keys(pieceCache).sort()]
 }
 
-function getRandomPiece(label: string): CachedPiece {
+export function getRandomPiece(label: string): CachedPiece {
 	const pieces = pieceCache[label]
 
 	if (!pieces?.length) {
@@ -85,7 +85,7 @@ function getRandomPiece(label: string): CachedPiece {
 	return pieces[Math.floor(Math.random() * pieces.length)]
 }
 
-async function augmentImage(image: Buffer): Promise<Buffer> {
+export async function augmentImage(image: Buffer): Promise<Buffer> {
 	let pipeline = sharp(image)
 
 	pipeline = pipeline.modulate({

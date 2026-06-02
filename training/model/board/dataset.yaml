@@ -1,0 +1,7 @@
+path: training/datasets/detector
+
+train: images/train
+val: images/val
+
+names:
+  0: chessboard

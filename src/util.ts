@@ -86,3 +86,29 @@ export function castlingRightsToFen(castlingRights: number): string {
 	if (fen === '') return '-'
 	return fen
 }
+
+const CLASS_TO_PIECE: Piece[] = [
+	Piece.Empty, // 0
+	makeBlack(Piece.Bishop), // 1 bB
+	makeBlack(Piece.King), // 2 bK
+	makeBlack(Piece.Knight), // 3 bN
+	makeBlack(Piece.Pawn), // 4 bP
+	makeBlack(Piece.Queen), // 5 bQ
+	makeBlack(Piece.Rook), // 6 bR
+	makeWhite(Piece.Bishop), // 7 wB
+	makeWhite(Piece.King), // 8 wK
+	makeWhite(Piece.Knight), // 9 wN
+	makeWhite(Piece.Pawn), // 10 wP
+	makeWhite(Piece.Queen), // 11 wQ
+	makeWhite(Piece.Rook), // 12 wR
+]
+
+export function convertPrediction(prediction: number): Piece {
+	const piece = CLASS_TO_PIECE[prediction]
+
+	if (piece === undefined) {
+		throw new Error(`Invalid prediction class: ${prediction}`)
+	}
+
+	return piece
+}

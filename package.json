@@ -27,7 +27,8 @@
 	],
 	"dependencies": {
 		"@resvg/resvg-js": "^2.6.2",
-		"opencv.js": "^1.2.1",
+		"@techstark/opencv-js": "^4.12.0-release.1",
+		"onnxruntime-node": "^1.26.0",
 		"sharp": "^0.34.5"
 	},
 	"devDependencies": {
