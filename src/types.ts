@@ -63,3 +63,8 @@ export interface RawImage {
 	height: number
 	data: Uint8ClampedArray
 }
+
+export interface ScanResult {
+	fen: string
+	confidence: Prediction[]
+}

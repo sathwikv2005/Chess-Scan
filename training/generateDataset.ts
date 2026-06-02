@@ -70,7 +70,7 @@ export async function loadPieceCache() {
 	}
 }
 
-function getRandomPiece(label: string) {
+export function getRandomPiece(label: string) {
 	const pieces = pieceCache[label]
 	return pieces[Math.floor(Math.random() * pieces.length)]
 }
