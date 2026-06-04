@@ -123,15 +123,15 @@ async function createTensor(image: RawImage) {
 }
 
 export async function getBoardFromRaw(image: RawImage): Promise<RawImage> {
-	await fs.mkdir('debug', { recursive: true })
+	// await fs.mkdir('debug', { recursive: true })
 
-	await saveRawImage(image, 'debug/01-input.png')
+	// await saveRawImage(image, 'debug/01-input.png')
 
 	const session = await getBoardDetector()
 
 	const tensor = await createTensor(image)
 
-	await saveTensor(tensor, 'debug/02-model-input.png')
+	// await saveTensor(tensor, 'debug/02-model-input.png')
 
 	const outputs = await session.run({
 		images: tensor,
@@ -210,21 +210,21 @@ export async function getBoardFromRaw(image: RawImage): Promise<RawImage> {
 	}
 
 	// 4. Save crop before resize
-	await sharp(Buffer.from(image.data), {
-		raw: {
-			width: image.width,
-			height: image.height,
-			channels: 4,
-		},
-	})
-		.extract({
-			left,
-			top,
-			width,
-			height,
-		})
-		.png()
-		.toFile('debug/04-crop-before-resize.png')
+	// await sharp(Buffer.from(image.data), {
+	// 	raw: {
+	// 		width: image.width,
+	// 		height: image.height,
+	// 		channels: 4,
+	// 	},
+	// })
+	// 	.extract({
+	// 		left,
+	// 		top,
+	// 		width,
+	// 		height,
+	// 	})
+	// 	.png()
+	// 	.toFile('debug/04-crop-before-resize.png')
 
 	const { data, info } = await sharp(Buffer.from(image.data), {
 		raw: {
@@ -244,15 +244,15 @@ export async function getBoardFromRaw(image: RawImage): Promise<RawImage> {
 		.raw()
 		.toBuffer({ resolveWithObject: true })
 
-	await sharp(Buffer.from(data), {
-		raw: {
-			width: info.width,
-			height: info.height,
-			channels: 4,
-		},
-	})
-		.png()
-		.toFile('debug/05-board.png')
+	// await sharp(Buffer.from(data), {
+	// 	raw: {
+	// 		width: info.width,
+	// 		height: info.height,
+	// 		channels: 4,
+	// 	},
+	// })
+	// 	.png()
+	// 	.toFile('debug/05-board.png')
 
 	return {
 		width: info.width,

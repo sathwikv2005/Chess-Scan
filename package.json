@@ -1,6 +1,6 @@
 {
 	"name": "chess-scan",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Convert chessboard images into FEN notation",
 	"author": "sathwikv2005",
 	"license": "MIT",
